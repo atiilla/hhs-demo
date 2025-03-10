@@ -24,6 +24,13 @@ const MainLogo = () => {
     case "cyberwave":
       fill = "#80ffff"; // Cyan color for cyberwave theme (matches --foreground: 180 100% 80%)
       break;
+    case "system":
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        fill = "#fff"; // White for dark mode
+      } else {
+        fill = "#000"; // Black for light mode
+      }
+      break;
     default:
       fill = "#000"; // Black for light and other themes
   }
