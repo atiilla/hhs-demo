@@ -19,6 +19,8 @@ export interface Translations {
     dark: string;
     light: string;
     system: string;
+    cyberwave: string;
+    cyberpunk: string;
     appearance: string;
     appearanceDescription: string;
     languageDescription: string;
@@ -75,6 +77,8 @@ const en: Translations = {
     dark: 'Dark',
     light: 'Light',
     system: 'System',
+    cyberwave: 'Cyberwave',
+    cyberpunk: 'Cyberpunk',
     appearance: 'Appearance',
     appearanceDescription: 'Customize how the application looks',
     languageDescription: 'Choose your preferred language',
@@ -131,6 +135,8 @@ const tr: Translations = {
     dark: 'Koyu',
     light: 'Açık',
     system: 'Sistem',
+    cyberwave: 'Siber Dalga',
+    cyberpunk: 'Siberpunk',
     appearance: 'Görünüm',
     appearanceDescription: 'Uygulamanın görünümünü özelleştirin',
     languageDescription: 'Tercih ettiğiniz dili seçin',
