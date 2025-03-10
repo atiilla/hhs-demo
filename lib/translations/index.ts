@@ -20,7 +20,6 @@ export interface Translations {
     light: string;
     system: string;
     cyberwave: string;
-    cyberpunk: string;
     appearance: string;
     appearanceDescription: string;
     languageDescription: string;
@@ -61,12 +60,12 @@ export interface Translations {
 // English translations
 const en: Translations = {
   common: {
-    appName: 'Happy Hacking Space',
+    appName: 'Next.js 15 + Zustand Demo',
     loading: 'Loading...',
   },
   home: {
-    title: 'Happy Hacking Space',
-    subtitle: 'A modern web application',
+    title: 'Welcome to Next.js 15',
+    subtitle: 'A modern web application with responsive design',
     mobileVersion: 'Mobile Version',
     desktopVersion: 'Desktop Version',
   },
@@ -78,7 +77,6 @@ const en: Translations = {
     light: 'Light',
     system: 'System',
     cyberwave: 'Cyberwave',
-    cyberpunk: 'Cyberpunk',
     appearance: 'Appearance',
     appearanceDescription: 'Customize how the application looks',
     languageDescription: 'Choose your preferred language',
@@ -119,14 +117,14 @@ const en: Translations = {
 // Spanish translations
 const tr: Translations = {
   common: {
-    appName: 'Happy Hacking Space',
+    appName: 'Next.js 15 + Zustand Demo',
     loading: 'Yükleniyor...',
   },
   home: {
-    title: 'Happy Hacking Space',
-    subtitle: 'Bir modern web uygulaması',
-    mobileVersion: 'Mobile Versiyon',
-    desktopVersion: 'Desktop Versiyon',
+    title: 'Next.js 15\'e Hoş Geldiniz',
+    subtitle: 'Duyarlı tasarıma sahip modern bir web uygulaması',
+    mobileVersion: 'Mobil Versiyon',
+    desktopVersion: 'Masaüstü Versiyon',
   },
   settings: {
     title: 'Ayarlar',
@@ -136,7 +134,6 @@ const tr: Translations = {
     light: 'Açık',
     system: 'Sistem',
     cyberwave: 'Cyberwave',
-    cyberpunk: 'Cyberpunk',
     appearance: 'Görünüm',
     appearanceDescription: 'Uygulamanın görünümünü özelleştirin',
     languageDescription: 'Tercih ettiğiniz dili seçin',

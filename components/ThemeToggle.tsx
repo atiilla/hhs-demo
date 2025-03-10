@@ -1,6 +1,6 @@
 "use client";
 
-import { Moon, Sun, Monitor, Zap, Cpu } from "lucide-react";
+import { Moon, Sun, Monitor, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import {
@@ -19,10 +19,9 @@ export default function ThemeToggle() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 cyberwave:-rotate-90 cyberwave:scale-0 cyberpunk:-rotate-90 cyberpunk:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 cyberwave:scale-0 cyberpunk:scale-0" />
-          <Zap className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all cyberwave:rotate-0 cyberwave:scale-100 cyberpunk:scale-0" />
-          <Cpu className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all cyberpunk:rotate-0 cyberpunk:scale-100 cyberwave:scale-0" />
+          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 cyberwave:-rotate-90 cyberwave:scale-0" />
+          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 cyberwave:scale-0" />
+          <Zap className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all cyberwave:rotate-0 cyberwave:scale-100" />
           <span className="sr-only">{t.settings.theme}</span>
         </Button>
       </DropdownMenuTrigger>
@@ -38,10 +37,6 @@ export default function ThemeToggle() {
         <DropdownMenuItem onClick={() => setTheme("cyberwave")}>
           <Zap className="mr-2 h-4 w-4" />
           <span>{t.settings.cyberwave || "Cyberwave"}</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("cyberpunk")}>
-          <Cpu className="mr-2 h-4 w-4" />
-          <span>{t.settings.cyberpunk || "Cyberpunk"}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
           <Monitor className="mr-2 h-4 w-4" />

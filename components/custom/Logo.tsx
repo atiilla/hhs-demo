@@ -24,9 +24,6 @@ const MainLogo = () => {
     case "cyberwave":
       fill = "#80ffff"; // Cyan color for cyberwave theme (matches --foreground: 180 100% 80%)
       break;
-    case "cyberpunk":
-      fill = "#ffcc66"; // Yellow/gold for cyberpunk theme (matches --foreground: 60 100% 80%)
-      break;
     default:
       fill = "#000"; // Black for light and other themes
   }
