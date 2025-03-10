@@ -38,7 +38,7 @@ const MobileFeature = () => {
       
       <Card>
         <CardHeader>
-          <CardTitle>Today's Activity</CardTitle>
+          <CardTitle>Today&apos;s Activity</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-2">

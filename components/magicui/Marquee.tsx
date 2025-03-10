@@ -46,20 +46,22 @@ export function Marquee({
   const scrollerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
-    
+    const currentContainer = containerRef.current;
     const resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        if (entry.target === containerRef.current) {
+        if (entry.target === currentContainer) {
           setContainerWidth(entry.contentRect.width);
         }
       }
     });
 
-    resizeObserver.observe(containerRef.current);
+    if (currentContainer) {
+      resizeObserver.observe(currentContainer);
+    }
+    
     return () => {
-      if (containerRef.current) {
-        resizeObserver.unobserve(containerRef.current);
+      if (currentContainer) {
+        resizeObserver.unobserve(currentContainer);
       }
     };
   }, []);
