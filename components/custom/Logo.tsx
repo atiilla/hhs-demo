@@ -15,7 +15,21 @@ const MainLogo = () => {
 
   if (!mounted) return null;
 
-  const fill = currentTheme === "dark" ? "#fff" : "#000";
+  // Update fill color based on theme
+  let fill;
+  switch (currentTheme) {
+    case "dark":
+      fill = "#fff"; // White for dark theme
+      break;
+    case "cyberwave":
+      fill = "#80ffff"; // Cyan color for cyberwave theme (matches --foreground: 180 100% 80%)
+      break;
+    case "cyberpunk":
+      fill = "#ffcc66"; // Yellow/gold for cyberpunk theme (matches --foreground: 60 100% 80%)
+      break;
+    default:
+      fill = "#000"; // Black for light and other themes
+  }
 
   return (
     <SVG fill={fill} />

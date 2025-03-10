@@ -3,21 +3,26 @@ import MobileNav from './MobileNav';
 import Footer from './Footer';
 import HeroCarousel from './HeroCarousel';
 import MobileFooter from './MobileFooter';
+import MainLogo from './custom/Logo';
+import { usePathname } from 'next/navigation';
 
 interface MobileLayoutProps {
   children: React.ReactNode;
 }
 
 const MobileLayout = ({ children }: MobileLayoutProps) => {
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
+
   return (
     <div className="flex min-h-screen flex-col">
       {/* Mobile-specific header/nav */}
       <div className="mobile-header bg-background border-b p-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold">HHS Mobile</h1>
+        <MainLogo />
         <MobileNav />
       </div>
       
-      <HeroCarousel />
+      {isHomePage && <HeroCarousel />}
       
       <main className="flex-1 px-4 py-6">
         <div className="mobile-specific-container">

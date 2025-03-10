@@ -6,6 +6,7 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { getNavigationItems } from '@/lib/config/navigation';
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import MainLogo from './custom/Logo';
 
 const MobileNav = () => {
   const t = useTranslation();
