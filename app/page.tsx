@@ -30,13 +30,13 @@ export default function Home() {
         </p>
       </div>
 
+      {/* Render device-specific components */}
+      {isMobile ? <MobileFeature /> : <DesktopFeature />}
+
       {/* Full-width fluid Marquee */}
       <div className="w-full px-0 mb-12">
         <MarqueeDemo />
       </div>
-
-      {/* Render device-specific components */}
-      {isMobile ? <MobileFeature /> : <DesktopFeature />}
     </main>
   );
 }

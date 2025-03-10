@@ -38,24 +38,67 @@ const MobileFeature = () => {
       
       <Card>
         <CardHeader>
-          <CardTitle>Today&apos;s Activity</CardTitle>
+          <CardTitle>Commit Activity</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="space-y-2">
+          <div className="space-y-4">
             <div className="flex justify-between items-center">
-              <span>Steps</span>
-              <span className="font-bold">6,542</span>
-            </div>
-            <div className="w-full bg-muted rounded-full h-2">
-              <div className="bg-primary h-2 rounded-full w-3/4"></div>
+              <span className="text-sm text-muted-foreground">365 contributions in the last year</span>
+              <span className="text-xs text-muted-foreground">More</span>
             </div>
             
-            <div className="flex justify-between items-center mt-4">
-              <span>Water</span>
-              <span className="font-bold">4/8 cups</span>
+            {/* GitHub-style contribution graph */}
+            <div className="grid grid-cols-7 gap-1">
+              {Array.from({ length: 35 }).map((_, i) => {
+                // Generate random activity levels (0-4)
+                const activityLevel = Math.floor(Math.random() * 5);
+                // Map activity level to appropriate color class
+                const colorClass = [
+                  'bg-muted', // 0: No activity
+                  'bg-emerald-100 animate-pulse', // 1: Low activity with pulse
+                  'bg-emerald-300', // 2: Medium activity
+                  'bg-emerald-500', // 3: High activity
+                  'bg-emerald-700 animate-pulse', // 4: Very high activity with pulse
+                ][activityLevel];
+                
+                return (
+                  <div 
+                    key={i} 
+                    className={`h-4 w-4 rounded-sm ${colorClass} transition-colors duration-300`}
+                    title={`${activityLevel} contributions`}
+                  />
+                );
+              })}
             </div>
-            <div className="w-full bg-muted rounded-full h-2">
-              <div className="bg-blue-500 h-2 rounded-full w-1/2"></div>
+            
+            {/* Activity summary */}
+            <div className="flex justify-between items-center pt-2 border-t">
+              <div className="flex items-center">
+                <div className="h-3 w-3 rounded-sm bg-emerald-500 mr-1"></div>
+                <span className="text-xs">Today: 5 commits</span>
+              </div>
+              <div className="text-xs font-medium text-emerald-600 animate-pulse">
+                +12% from last week
+              </div>
+            </div>
+            
+            {/* Recent activity */}
+            <div className="space-y-2 pt-2 border-t">
+              <div className="text-sm font-medium">Recent Activity</div>
+              <div className="flex items-start space-x-2">
+                <div className="h-6 w-6 rounded-full bg-muted flex-shrink-0 mt-1"></div>
+                <div>
+                  <div className="text-xs font-medium">Fixed navigation bug</div>
+                  <div className="text-xs text-muted-foreground">2 hours ago</div>
+                </div>
+              </div>
+              <div className="flex items-start space-x-2">
+                <div className="h-6 w-6 rounded-full bg-muted flex-shrink-0 mt-1"></div>
+                <div>
+                  <div className="text-xs font-medium">Updated README.md</div>
+                  <div className="text-xs text-muted-foreground">5 hours ago</div>
+                </div>
+              </div>
             </div>
           </div>
         </CardContent>
