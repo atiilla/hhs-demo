@@ -71,6 +71,10 @@ export const getNavigationItems = (t: Translations): NavigationItem[] => [
     label: t.navigation.blog,
     href: "/blog",
   },
+  {
+    label: t.navigation.settings || "Settings",
+    href: "/settings",
+  },
 ];
 
 export const getFooterItems = (t: Translations): NavigationItem[] => [

@@ -8,7 +8,8 @@ interface WrapperProps extends React.PropsWithChildren {
   className?: string;
 }
 
-const Logo = () => {
+// Renamed to MainLogo to avoid naming conflict with the default export
+const MainLogo = () => {
   const mounted = useMounted();
   const { theme: currentTheme } = useTheme();
 
@@ -75,4 +76,5 @@ export function AsciiLogo({ className }: WrapperProps) {
   );
 }
 
-export default Logo;
+// Export the MainLogo component as the default export
+export default MainLogo;

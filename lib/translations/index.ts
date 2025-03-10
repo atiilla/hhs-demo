@@ -13,11 +13,23 @@ export interface Translations {
     desktopVersion: string;
   };
   settings: {
+    title: string;
     language: string;
     theme: string;
     dark: string;
     light: string;
     system: string;
+    appearance: string;
+    appearanceDescription: string;
+    languageDescription: string;
+  };
+  events: {
+    title: string;
+    viewDetails: string;
+  };
+  blog: {
+    title: string;
+    readMore: string;
   };
   navigation: {
     home: string;
@@ -36,6 +48,7 @@ export interface Translations {
     stickers: string;
     blog: string;
     brandKit: string;
+    settings: string;
   };
   carousel: {
     slogan: string;
@@ -56,11 +69,23 @@ const en: Translations = {
     desktopVersion: 'Desktop Version',
   },
   settings: {
+    title: 'Settings',
     language: 'Language',
     theme: 'Theme',
     dark: 'Dark',
     light: 'Light',
     system: 'System',
+    appearance: 'Appearance',
+    appearanceDescription: 'Customize how the application looks',
+    languageDescription: 'Choose your preferred language',
+  },
+  events: {
+    title: 'Events',
+    viewDetails: 'View Details',
+  },
+  blog: {
+    title: 'Blog',
+    readMore: 'Read More',
   },
   navigation: {
     home: 'Home',
@@ -79,6 +104,7 @@ const en: Translations = {
     stickers: 'Stickers',
     blog: 'Blog',
     brandKit: 'Brand Kit',
+    settings: 'Settings',
   },
   carousel: {
     slogan: 'Innovate. Create. Transform.',
@@ -99,11 +125,23 @@ const tr: Translations = {
     desktopVersion: 'Desktop Versiyon',
   },
   settings: {
+    title: 'Ayarlar',
     language: 'Dil',
     theme: 'Tema',
     dark: 'Koyu',
     light: 'Açık',
     system: 'Sistem',
+    appearance: 'Görünüm',
+    appearanceDescription: 'Uygulamanın görünümünü özelleştirin',
+    languageDescription: 'Tercih ettiğiniz dili seçin',
+  },
+  events: {
+    title: 'Etkinlikler',
+    viewDetails: 'Detayları Gör',
+  },
+  blog: {
+    title: 'Blog',
+    readMore: 'Devamını Oku',
   },
   navigation: {
     home: 'Anasayfa',
@@ -122,6 +160,7 @@ const tr: Translations = {
     stickers: 'Çıkartmalar',
     blog: 'Blog',
     brandKit: 'Marka Kiti',
+    settings: 'Ayarlar',
   },
   carousel: {
     slogan: 'Yenilik. Yaratıcılık. Dönüşüm.',

@@ -2,6 +2,7 @@ import React from 'react';
 import MobileNav from './MobileNav';
 import Footer from './Footer';
 import HeroCarousel from './HeroCarousel';
+import MobileFooter from './MobileFooter';
 
 interface MobileLayoutProps {
   children: React.ReactNode;
@@ -28,26 +29,10 @@ const MobileLayout = ({ children }: MobileLayoutProps) => {
       </main>
       
       {/* Mobile-specific footer with navigation */}
-      <div className="mobile-footer bg-background border-t fixed bottom-0 left-0 right-0 p-2">
-        <div className="flex justify-around items-center">
-          <button className="p-2 flex flex-col items-center text-xs">
-            <span className="material-icons">home</span>
-            Home
-          </button>
-          <button className="p-2 flex flex-col items-center text-xs">
-            <span className="material-icons">search</span>
-            Search
-          </button>
-          <button className="p-2 flex flex-col items-center text-xs">
-            <span className="material-icons">person</span>
-            Profile
-          </button>
-          <button className="p-2 flex flex-col items-center text-xs">
-            <span className="material-icons">settings</span>
-            Settings
-          </button>
-        </div>
-      </div>
+      <MobileFooter />
+      
+      {/* Add padding at the bottom to prevent content from being hidden behind the fixed footer */}
+      <div className="h-16"></div>
       
       {/* Regular footer is hidden on mobile */}
       <div className="hidden">
