@@ -3,7 +3,27 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 // Using the JSON file from the app/bookmarks directory
-export async function GET() {
+export async function GET(request) {
+    const { searchParams } = new URL(request.url);
+    const source = searchParams.get('source') || 'awesome-hackathon';
+    
+    try {
+        // Source-specific handling
+        switch (source) {
+            case 'awesome-hackathon':
+                return getAwesomeHackathonBookmarks();
+            case 'personal':
+                return getPersonalBookmarks();
+            default:
+                return NextResponse.json({ error: 'Unknown bookmark source' }, { status: 400 });
+        }
+    } catch (error) {
+        console.error(`Error loading bookmarks from source ${source}:`, error);
+        return NextResponse.json({ error: 'Failed to load bookmarks' }, { status: 500 });
+    }
+}
+
+async function getAwesomeHackathonBookmarks() {
     try {
         // Try multiple potential file locations
         const possiblePaths = [
@@ -45,6 +65,46 @@ export async function GET() {
     } catch (error) {
         console.error('Error reading awesome-hackathon.json:', error);
         return NextResponse.json({ error: 'Failed to load bookmarks' }, { status: 500 });
+    }
+}
+
+async function getPersonalBookmarks() {
+    // This would typically fetch from a database or storage
+    // For now, we'll return a sample structure
+    try {
+        const personalBookmarks = [
+            {
+                id: Date.now(),
+                title: 'Personal Bookmarks',
+                url: '#',
+                widgets: [
+                    {
+                        title: 'Favorites',
+                        items: {
+                            links: [
+                                {
+                                    title: 'GitHub',
+                                    url: 'https://github.com',
+                                    description: 'Where developers collaborate',
+                                    icon: 'https://www.google.com/s2/favicons?domain=github.com&sz=64'
+                                },
+                                {
+                                    title: 'VS Code',
+                                    url: 'https://code.visualstudio.com',
+                                    description: 'Free, built on open source, runs everywhere',
+                                    icon: 'https://www.google.com/s2/favicons?domain=code.visualstudio.com&sz=64'
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ];
+        
+        return NextResponse.json(personalBookmarks);
+    } catch (error) {
+        console.error('Error fetching personal bookmarks:', error);
+        return NextResponse.json({ error: 'Failed to load personal bookmarks' }, { status: 500 });
     }
 }
 

@@ -106,7 +106,28 @@ function parseReadmeToJson(content) {
 }
 
 // API endpoint to refresh the data
-export async function GET() {
+export async function GET(request) {
+    const { searchParams } = new URL(request.url);
+    const source = searchParams.get('source') || 'awesome-hackathon';
+    
+    try {
+        // Source-specific refresh logic
+        switch (source) {
+            case 'awesome-hackathon':
+                return await refreshAwesomeHackathon();
+            case 'personal':
+                return await refreshPersonalBookmarks();
+            default:
+                return NextResponse.json({ error: 'Unknown bookmark source' }, { status: 400 });
+        }
+    } catch (error) {
+        console.error(`Error refreshing bookmarks from source ${source}:`, error);
+        return NextResponse.json({ error: 'Failed to refresh bookmarks' }, { status: 500 });
+    }
+}
+
+// Function to refresh awesome-hackathon data
+async function refreshAwesomeHackathon() {
     try {
         // Fetch the latest README
         const readmeContent = await fetchLatestReadme();
@@ -158,5 +179,20 @@ export async function GET() {
             success: false, 
             error: error.message 
         }, { status: 500 });
+    }
+}
+
+// Function to refresh personal bookmarks data
+async function refreshPersonalBookmarks() {
+    // Logic to refresh personal bookmarks (could connect to a database, API, etc.)
+    try {
+        // Mock successful refresh
+        return NextResponse.json({ 
+            message: 'Successfully refreshed personal bookmarks',
+            sections: 1 // Mock section count
+        });
+    } catch (error) {
+        console.error('Error refreshing personal bookmarks:', error);
+        return NextResponse.json({ error: 'Failed to refresh personal bookmarks' }, { status: 500 });
     }
 } 

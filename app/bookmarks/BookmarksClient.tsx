@@ -1,17 +1,21 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import useBookmarksStore from '../../lib/useBookmarksStore';
+import useBookmarksStore, { BOOKMARK_SOURCES } from '../../lib/useBookmarksStore';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Bookmark, Link as LinkIcon, ExternalLink, ChevronRight, Code, Database, Server, Globe, RefreshCw } from 'lucide-react';
+import { Bookmark, Link as LinkIcon, ExternalLink, ChevronRight, Code, Database, Server, Globe, RefreshCw, Folder, FolderPlus, Search } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Input } from '@/components/ui/input';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 
 export default function BookmarksClient() {
-    const { bookmarks, loadBookmarks, isLoading } = useBookmarksStore();
+    const { bookmarks, loadBookmarks, isLoading, currentSource, setCurrentSource } = useBookmarksStore();
     const [expandedWidgets, setExpandedWidgets] = useState<Record<string, boolean>>({});
     const [isRefreshing, setIsRefreshing] = useState(false);
     const [refreshStatus, setRefreshStatus] = useState<{success?: boolean; message?: string}>({});
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
         loadBookmarks();
@@ -35,8 +39,8 @@ export default function BookmarksClient() {
         setRefreshStatus({});
         
         try {
-            // Call the refresh endpoint
-            const response = await fetch('/api/bookmarks/refresh');
+            // Call the refresh endpoint with the current source
+            const response = await fetch(`/api/bookmarks/refresh?source=${currentSource}`);
             const result = await response.json();
             
             if (response.ok) {
@@ -79,134 +83,246 @@ export default function BookmarksClient() {
         return colors[index % colors.length];
     };
 
+    // Filter bookmarks based on search query
+    const filteredBookmarks = bookmarks.map(bookmark => {
+        if (!searchQuery) return bookmark;
+        
+        const filteredWidgets = bookmark.widgets?.filter(widget => {
+            return widget.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                widget.items.links.some(link => 
+                    link.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    (link.description && link.description.toLowerCase().includes(searchQuery.toLowerCase()))
+                );
+        });
+        
+        return {
+            ...bookmark,
+            widgets: filteredWidgets
+        };
+    }).filter(bookmark => bookmark.widgets && bookmark.widgets.length > 0);
+
+    // Sources for the dropdown
+    const sources = [
+        { id: BOOKMARK_SOURCES.AWESOME_HACKATHON, name: 'Awesome Hackathon' },
+        { id: BOOKMARK_SOURCES.PERSONAL, name: 'Personal' },
+    ];
+
+    // Handle source change
+    const handleSourceChange = (sourceId: string) => {
+        setCurrentSource(sourceId);
+    };
+
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="container mx-auto px-4 py-8"
-        >
-            <div className="mb-8 flex justify-between items-center">
-                <div>
-                    <h1 className="text-3xl font-bold mb-2">Awesome Hackathon Resources</h1>
-                    <p className="text-muted-foreground">A curated list of tools and resources to help you build, design, and win hackathons! 🏆</p>
+        <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
+            {/* Left sidebar */}
+            <div className="w-60 border-r bg-background p-4 hidden md:block">
+                <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                        <h2 className="text-xl font-semibold">Bookmarks</h2>
+                        <Button variant="ghost" size="icon" title="Add new folder">
+                            <FolderPlus className="h-5 w-5" />
+                        </Button>
+                    </div>
+                    
+                    <div className="space-y-1">
+                        {sources.map(source => (
+                            <Button
+                                key={source.id}
+                                variant={currentSource === source.id ? "secondary" : "ghost"}
+                                className="w-full justify-start"
+                                onClick={() => handleSourceChange(source.id)}
+                            >
+                                <Folder className="h-4 w-4 mr-2" />
+                                {source.name}
+                            </Button>
+                        ))}
+                    </div>
                 </div>
-                
-                <Button 
-                    onClick={refreshData} 
-                    disabled={isRefreshing || isLoading} 
-                    variant="outline" 
-                    size="sm"
-                    className="flex items-center gap-2"
-                >
-                    <RefreshCw className={`h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
-                    {isRefreshing ? 'Refreshing...' : 'Refresh Data'}
-                </Button>
             </div>
             
-            {refreshStatus.message && (
-                <div className={`mb-6 p-4 rounded-lg ${refreshStatus.success ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-                    {refreshStatus.message}
+            {/* Main content */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="flex-1 p-4 md:p-8"
+            >
+                {/* Mobile source selector */}
+                <div className="md:hidden mb-4">
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="outline" className="w-full justify-between">
+                                <div className="flex items-center">
+                                    <Folder className="h-4 w-4 mr-2" />
+                                    {sources.find(s => s.id === currentSource)?.name || 'Select source'}
+                                </div>
+                                <ChevronRight className="h-4 w-4 ml-2" />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent>
+                            {sources.map(source => (
+                                <DropdownMenuItem key={source.id} onClick={() => handleSourceChange(source.id)}>
+                                    <Folder className="h-4 w-4 mr-2" />
+                                    {source.name}
+                                </DropdownMenuItem>
+                            ))}
+                        </DropdownMenuContent>
+                    </DropdownMenu>
                 </div>
-            )}
+                
+                <div className="mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div>
+                        <h1 className="text-3xl font-bold">{sources.find(s => s.id === currentSource)?.name || 'Bookmarks'}</h1>
+                        <p className="text-muted-foreground">
+                            {currentSource === BOOKMARK_SOURCES.AWESOME_HACKATHON 
+                                ? 'A curated list of tools and resources to help you build, design, and win hackathons! 🏆'
+                                : 'Your personal collection of bookmarks and resources'}
+                        </p>
+                    </div>
+                    
+                    <div className="flex items-center gap-2">
+                        <div className="relative w-full md:w-auto">
+                            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                            <Input
+                                type="search"
+                                placeholder="Search bookmarks..."
+                                className="pl-8 w-full md:w-[200px]"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
+                        </div>
+                        
+                        <Button 
+                            onClick={refreshData} 
+                            disabled={isRefreshing || isLoading} 
+                            variant="outline" 
+                            size="sm"
+                            className="flex items-center gap-2 whitespace-nowrap"
+                        >
+                            <RefreshCw className={`h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
+                            {isRefreshing ? 'Refreshing...' : 'Refresh'}
+                        </Button>
+                    </div>
+                </div>
+                
+                {refreshStatus.message && (
+                    <div className={`mb-6 p-4 rounded-lg ${refreshStatus.success ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100' : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100'}`}>
+                        {refreshStatus.message}
+                    </div>
+                )}
 
-            {isLoading ? (
-                <div className="flex justify-center py-12">
-                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
-                </div>
-            ) : (
-                <>
-                    {/* Display the awesome-hackathon data */}
-                    {bookmarks && bookmarks.length > 0 && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {bookmarks.map((bookmark, bookmarkIndex) => {
-                                if (!bookmark || !bookmark.widgets || !Array.isArray(bookmark.widgets) || bookmark.widgets.length === 0) {
-                                    return null;
-                                }
-                                
-                                return bookmark.widgets.map((widget, widgetIndex) => {
-                                    if (!widget || !widget.items || !widget.items.links || !Array.isArray(widget.items.links)) {
+                {isLoading ? (
+                    <div className="flex justify-center py-12">
+                        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+                    </div>
+                ) : (
+                    <>
+                        {/* Display the bookmarks data */}
+                        {filteredBookmarks && filteredBookmarks.length > 0 ? (
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {filteredBookmarks.map((bookmark, bookmarkIndex) => {
+                                    if (!bookmark || !bookmark.widgets || !Array.isArray(bookmark.widgets) || bookmark.widgets.length === 0) {
                                         return null;
                                     }
                                     
-                                    const widgetId = `${bookmarkIndex}-${widgetIndex}`;
-                                    const isExpanded = expandedWidgets[widgetId];
-                                    const links = widget.items.links || [];
-                                    const displayedLinks = isExpanded 
-                                        ? links 
-                                        : links.slice(0, Math.min(3, links.length));
-                                    const color = getSectionColor(bookmarkIndex + widgetIndex);
-                                    
-                                    return (
-                                        <Card key={`${bookmarkIndex}-${widgetIndex}`} className="overflow-hidden">
-                                            <CardHeader className={`bg-${color}/10 pb-3`}>
-                                                <CardTitle className="flex items-center gap-2 text-xl" id={widget.title}>
-                                                    {getSectionIcon(widget.title)}
-                                                    <span>{widget.title || 'Resource'}</span>
-                                                </CardTitle>
-                                                <CardDescription>{bookmark.title}</CardDescription>
-                                            </CardHeader>
-                                            <CardContent className="pt-4">
-                                                <div className="space-y-3">
-                                                    {displayedLinks.map((link, linkIndex) => {
-                                                        if (!link || !link.url) return null;
+                                    return bookmark.widgets.map((widget, widgetIndex) => {
+                                        if (!widget || !widget.items || !widget.items.links || !Array.isArray(widget.items.links)) {
+                                            return null;
+                                        }
+                                        
+                                        const widgetId = `${bookmarkIndex}-${widgetIndex}`;
+                                        const isExpanded = expandedWidgets[widgetId];
+                                        const links = widget.items.links || [];
+                                        const displayedLinks = isExpanded 
+                                            ? links 
+                                            : links.slice(0, Math.min(3, links.length));
+                                        const color = getSectionColor(bookmarkIndex + widgetIndex);
+                                        
+                                        return (
+                                            <Card key={`${bookmarkIndex}-${widgetIndex}`} className="overflow-hidden border hover:shadow-md transition-shadow">
+                                                <CardHeader className={`bg-${color}/10 pb-3`}>
+                                                    <CardTitle className="flex items-center gap-2 text-xl" id={widget.title}>
+                                                        {getSectionIcon(widget.title)}
+                                                        <span>{widget.title || 'Resource'}</span>
+                                                    </CardTitle>
+                                                    <CardDescription>{bookmark.title}</CardDescription>
+                                                </CardHeader>
+                                                <CardContent className="pt-4">
+                                                    <div className="space-y-3">
+                                                        {displayedLinks.map((link, linkIndex) => {
+                                                            if (!link || !link.url) return null;
+                                                            
+                                                            let icon;
+                                                            try {
+                                                                icon = link.icon || `https://www.google.com/s2/favicons?domain=${new URL(link.url).hostname}&sz=64`;
+                                                            } catch (e) {
+                                                                icon = 'https://placehold.co/40x40?text=?';
+                                                            }
+                                                            
+                                                            return (
+                                                                <ResourceLink 
+                                                                    key={linkIndex}
+                                                                    title={link.title || 'Untitled'}
+                                                                    icon={icon}
+                                                                    description={link.description || ''}
+                                                                    url={link.url}
+                                                                />
+                                                            );
+                                                        })}
                                                         
-                                                        let icon;
-                                                        try {
-                                                            icon = link.icon || `https://www.google.com/s2/favicons?domain=${new URL(link.url).hostname}&sz=64`;
-                                                        } catch (e) {
-                                                            icon = 'https://placehold.co/40x40?text=?';
-                                                        }
-                                                        
-                                                        return (
-                                                            <ResourceLink 
-                                                                key={linkIndex}
-                                                                title={link.title || 'Untitled'}
-                                                                icon={icon}
-                                                                description={link.description || ''}
-                                                                url={link.url}
-                                                            />
-                                                        );
-                                                    })}
-                                                    
-                                                    {links.length > 3 && (
-                                                        <Button 
-                                                            variant="ghost" 
-                                                            size="sm" 
-                                                            className={`w-full justify-start text-${color}`}
-                                                            onClick={() => toggleWidget(widgetId, widget.title)}
-                                                        >
-                                                            <span>{isExpanded ? 'Show Less' : 'View All'}</span>
-                                                            <ChevronRight className={`h-4 w-4 ml-auto transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
-                                                        </Button>
-                                                    )}
-                                                </div>
-                                            </CardContent>
-                                        </Card>
-                                    );
-                                });
-                            })}
-                        </div>
-                    )}
-
-                    {(!bookmarks || bookmarks.length === 0) && !isLoading && (
-                        <div className="text-center py-12">
-                            <h3 className="text-xl font-semibold mb-2">No resources found</h3>
-                            <p className="text-muted-foreground">Couldn't load the awesome-hackathon resources. Please check if the JSON file exists.</p>
-                            <Button 
-                                onClick={refreshData} 
-                                disabled={isRefreshing} 
-                                variant="outline" 
-                                className="mt-4"
-                            >
-                                Try refreshing data
-                            </Button>
-                        </div>
-                    )}
-                </>
-            )}
-        </motion.div>
+                                                        {links.length > 3 && (
+                                                            <Button 
+                                                                variant="ghost" 
+                                                                size="sm" 
+                                                                className={`w-full justify-between text-${color}`}
+                                                                onClick={() => toggleWidget(widgetId, widget.title)}
+                                                            >
+                                                                <span>{isExpanded ? 'Show Less' : `Show ${links.length - 3} More`}</span>
+                                                                <ChevronRight className={`h-4 w-4 transition-transform ${isExpanded ? 'rotate-90' : ''}`} />
+                                                            </Button>
+                                                        )}
+                                                    </div>
+                                                </CardContent>
+                                            </Card>
+                                        );
+                                    });
+                                })}
+                            </div>
+                        ) : (
+                            <div className="text-center py-12">
+                                {searchQuery ? (
+                                    <div>
+                                        <h3 className="text-xl font-semibold mb-2">No matching bookmarks</h3>
+                                        <p className="text-muted-foreground">Try a different search term or clear your search</p>
+                                        <Button 
+                                            onClick={() => setSearchQuery('')} 
+                                            variant="outline" 
+                                            className="mt-4"
+                                        >
+                                            Clear search
+                                        </Button>
+                                    </div>
+                                ) : (
+                                    <div>
+                                        <h3 className="text-xl font-semibold mb-2">No bookmarks found</h3>
+                                        <p className="text-muted-foreground">No bookmarks available for the selected source.</p>
+                                        <Button 
+                                            onClick={refreshData} 
+                                            disabled={isRefreshing} 
+                                            variant="outline" 
+                                            className="mt-4"
+                                        >
+                                            Try refreshing data
+                                        </Button>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </>
+                )}
+            </motion.div>
+        </div>
     );
 }
 
@@ -217,7 +333,7 @@ function ResourceLink({ title, icon, description, url }: { title: string, icon: 
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 p-3 rounded-md hover:bg-accent/5 transition-colors group"
+            className="flex items-center gap-3 p-3 rounded-md hover:bg-accent/10 transition-colors group"
         >
             <div className="w-10 h-10 flex-shrink-0 rounded-md overflow-hidden bg-background border flex items-center justify-center">
                 <img 
