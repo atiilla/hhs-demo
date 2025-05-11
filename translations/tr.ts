@@ -22,6 +22,7 @@ export const tr = {
       contact: "İletişim",
       brand: "Marka",
       stickers: "Çıkartmalar",
+      bookmarks: "Yer İşaretleri",
     }
   },
   settings: {

@@ -22,6 +22,7 @@ export const en = {
       contact: "Contact",
       brand: "Branding",
       stickers: "Stickers",
+      bookmarks: "Bookmarks",
     }
   },
   settings: {

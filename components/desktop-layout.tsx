@@ -123,6 +123,7 @@ export default function DesktopLayout({ children }: { children: React.ReactNode 
                   { href: "/contact", label: t("nav.hhs.contact") },
                   { href: "/brand", label: t("nav.hhs.brand") },
                   { href: "/stickers", label: t("nav.hhs.stickers") },
+                  { href: "/bookmarks", label: t("nav.hhs.bookmarks") },
                 ]}
               />
               <NavSeparator />
