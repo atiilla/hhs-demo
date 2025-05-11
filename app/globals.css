@@ -243,13 +243,69 @@ html.hacker .btn,
 html.hacker button {
   text-transform: uppercase;
   letter-spacing: 1px;
-  box-shadow: 0 0 5px hsl(var(--primary));
 }
 
-html.hacker input {
+html.hacker input,
+html.hacker button,
+html.hacker select {
   background-color: rgba(0, 0, 0, 0.7);
-  border: 1px solid hsl(var(--primary));
   color: hsl(var(--primary));
+}
+
+/* Overrides for cyberwave theme */
+html.cyberwave .bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 30 30);
+}
+
+html.cyberwave .bg-slate-100 {
+  background-color: rgb(38 38 46);
+}
+
+html.cyberwave .dark\:bg-slate-800 {
+  background-color: rgb(26 26 34);
+}
+
+/* Fix for BookmarksClient colors in cyberwave theme */
+html.cyberwave .bg-emerald-50 {
+  background-color: rgba(16, 64, 48, 0.5);
+}
+
+html.cyberwave .bg-rose-50 {
+  background-color: rgba(64, 16, 32, 0.5);
+}
+
+/* Fix for hacker theme colors */
+html.hacker .bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(10 15 10);
+}
+
+html.hacker .bg-slate-100 {
+  background-color: rgba(0, 32, 0, 0.2);
+}
+
+html.hacker .dark\:bg-slate-800 {
+  background-color: rgba(0, 32, 0, 0.3);
+}
+
+/* Fix for BookmarksClient colors in hacker theme */
+html.hacker .bg-emerald-50 {
+  background-color: rgba(0, 64, 0, 0.2);
+}
+
+html.hacker .bg-rose-50 {
+  background-color: rgba(64, 0, 0, 0.2);
+}
+
+/* Remove borders from sidebar buttons in bookmarks page */
+html.hacker .w-60 button {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+html.cyberwave .w-60 button {
+  border-color: transparent !important;
 }
 
 @keyframes cursor-blink {
