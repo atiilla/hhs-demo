@@ -1,0 +1,841 @@
+{
+  "title": "Awesome-Hackathon",
+  "description": "Tools and resources to help you build, design, and win hackathons! 🏆",
+  "sections": [
+    {
+      "name": "Ideation & Inspiration",
+      "subsections": [
+        {
+          "name": "Inspiration",
+          "items": [
+            {
+              "name": "Evernote Design",
+              "url": "https://evernote.design/",
+              "description": "All in one bookmark links for designers."
+            },
+            {
+              "name": "Unarkhive",
+              "url": "https://unarkhive.com/",
+              "description": "Explore curated links across various categories, updated daily."
+            },
+            {
+              "name": "saasui.design",
+              "url": "https://saasui.design/",
+              "description": "SaasUI showcases top-tier SaaS application designs."
+            },
+            {
+              "name": "SCRNSHTS",
+              "url": "https://scrnshts.club/",
+              "description": "A hand-picked collection of the finest app store design screenshots."
+            },
+            {
+              "name": "Saaspo",
+              "url": "https://saaspo.com/",
+              "description": "The best SaaS web design inspiration."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Planning & Prototyping",
+      "subsections": [
+        {
+          "name": "Prototyping",
+          "items": [
+            {
+              "name": "Canva",
+              "url": "https://www.canva.com/",
+              "description": "Simple, user-friendly design tool with templates for web and mobile mockups."
+            },
+            {
+              "name": "Whimsical",
+              "url": "https://whimsical.com/",
+              "description": "Drag-and-drop wireframing tool, great for quick prototyping and ideation."
+            },
+            {
+              "name": "InVision Freehand",
+              "url": "https://www.invisionapp.com/freehand",
+              "description": "Digital whiteboard for brainstorming and UI mockups."
+            },
+            {
+              "name": "Adobe XD Free",
+              "url": "https://www.adobe.com/products/xd.html",
+              "description": "Lightweight design tool for creating simple wireframes and prototypes."
+            },
+            {
+              "name": "GIMP",
+              "url": "https://www.gimp.org/",
+              "description": "An open-source image editor comparable to Photoshop, used for graphic design and photo retouching."
+            },
+            {
+              "name": "Excalidraw",
+              "url": "https://excalidraw.com/",
+              "description": "A collaborative whiteboard tool for sketch-style diagrams, ideal for brainstorming and real-time visual collaboration."
+            },
+            {
+              "name": "LibreOffice",
+              "url": "https://www.libreoffice.org/",
+              "description": "A free, open-source office suite that provides word processing, spreadsheets, and presentation tools, serving as an alternative to Microsoft Office."
+            },
+            {
+              "name": "Kdenlive",
+              "url": "https://kdenlive.org/",
+              "description": "A professional-grade, open-source video editor for multi-track video creation and editing."
+            },
+            {
+              "name": "ProtoPie",
+              "url": "https://www.protopie.io/",
+              "description": "Intuitive prototyping tool for creating interactive and realistic app mockups."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Development",
+      "subsections": [
+        {
+          "name": "Boilerplates",
+          "items": [
+            {
+              "name": "Hackathon Starter",
+              "url": "https://github.com/sahat/hackathon-starter",
+              "description": "A Node.js web application boilerplate with authentication, OAuth2, account management, various API and AI integrations, and more."
+            }
+          ]
+        },
+        {
+          "name": "Frontend Development",
+          "items": [
+            {
+              "name": "React",
+              "url": "https://reactjs.org/",
+              "description": "JavaScript library with reusable components, great for rapid UI development."
+            },
+            {
+              "name": "Next.js",
+              "url": "https://nextjs.org/",
+              "description": "Powers high-quality web apps for the world’s leading companies, leveraging React's capabilities."
+            },
+            {
+              "name": "Vue.js",
+              "url": "https://vuejs.org/",
+              "description": "Lightweight, beginner-friendly framework for building dynamic web UIs."
+            },
+            {
+              "name": "Bootstrap",
+              "url": "https://getbootstrap.com/",
+              "description": "CSS framework with pre-designed, responsive components for fast layouts."
+            },
+            {
+              "name": "Tailwind CSS",
+              "url": "https://tailwindcss.com/",
+              "description": "Utility-based CSS framework for quick styling, no custom design needed."
+            },
+            {
+              "name": "Parcel",
+              "url": "https://parceljs.org/",
+              "description": "Zero-config bundler, ideal for quickly getting apps up and running."
+            },
+            {
+              "name": "SvelteKit",
+              "url": "https://svelte.dev/",
+              "description": "A fast and lightweight framework for building web applications with minimal boilerplate."
+            },
+            {
+              "name": "Shadcn UI",
+              "url": "https://ui.shadcn.com/",
+              "description": "Beautifully designed components that you can copy and paste into your apps. Made with Tailwind CSS. Open source."
+            },
+            {
+              "name": "Cult UI",
+              "url": "https://www.cult-ui.com",
+              "description": "Ready-to-use React components. Shadcn compatible, styled with Tailwind CSS. Open source and fully typed."
+            },
+            {
+              "name": "Magic UI",
+              "url": "https://magicui.design",
+              "description": "50+ free, open-source animated components for React, TypeScript, Tailwind CSS, and Framer Motion. Ideal for shadcn/ui."
+            }
+          ]
+        },
+        {
+          "name": "Backend Development",
+          "items": [
+            {
+              "name": "Express.js",
+              "url": "https://expressjs.com/",
+              "description": "Minimalist Node.js framework, easy to set up REST APIs in minutes."
+            },
+            {
+              "name": "FastAPI",
+              "url": "https://fastapi.tiangolo.com/",
+              "description": "Python framework for building APIs quickly, with built-in OpenAPI docs."
+            },
+            {
+              "name": "Flask",
+              "url": "https://flask.palletsprojects.com/",
+              "description": "Lightweight Python microframework, perfect for simple backends and APIs."
+            },
+            {
+              "name": "Firebase Functions",
+              "url": "https://firebase.google.com/docs/functions",
+              "description": "Serverless backend with fast deployment, useful for real-time updates."
+            },
+            {
+              "name": "Manifest",
+              "url": "https://manifest.build",
+              "description": "Instant Headless CMS / Micro-backend in 1 file to power websites and apps"
+            },
+            {
+              "name": "Hasura",
+              "url": "https://hasura.io/",
+              "description": "GraphQL engine for PostgreSQL, instantly creates a GraphQL API."
+            },
+            {
+              "name": "ASP.NET",
+              "url": "https://learn.microsoft.com/en-us/aspnet/core/",
+              "description": "A robust, open-source framework by Microsoft for building modern web applications and APIs in .NET, with comprehensive support for MVC patterns, authentication, and scalable deployment options."
+            }
+          ]
+        },
+        {
+          "name": "Mobile Development",
+          "items": [
+            {
+              "name": "Expo (React Native)",
+              "url": "https://expo.dev/",
+              "description": "Fast setup for cross-platform mobile development with React Native."
+            },
+            {
+              "name": "Flutter",
+              "url": "https://flutter.dev/",
+              "description": "Google’s UI toolkit for building visually rich, cross-platform apps quickly."
+            },
+            {
+              "name": "Ionic",
+              "url": "https://ionicframework.com/",
+              "description": "Hybrid app framework using web technologies, ideal for building fast MVPs."
+            },
+            {
+              "name": "Firebase Cloud Messaging (FCM)",
+              "url": "https://firebase.google.com/products/cloud-messaging/",
+              "description": "Easy push notifications for mobile, with no backend setup."
+            }
+          ]
+        },
+        {
+          "name": "Database & Storage",
+          "items": [
+            {
+              "name": "Firebase Firestore",
+              "url": "https://firebase.google.com/products/firestore",
+              "description": "Realtime NoSQL database with offline sync and flexible document model."
+            },
+            {
+              "name": "Supabase",
+              "url": "https://supabase.com/",
+              "description": "Open-source alternative to Firebase, provides an instant SQL database."
+            },
+            {
+              "name": "MongoDB Atlas",
+              "url": "https://www.mongodb.com/cloud/atlas",
+              "description": "Managed NoSQL database with a free tier, suitable for flexible schemas."
+            },
+            {
+              "name": "PlanetScale",
+              "url": "https://planetscale.com/",
+              "description": "Serverless MySQL database with a free tier, scalable and easy to set up."
+            },
+            {
+              "name": "Airtable",
+              "url": "https://airtable.com/",
+              "description": "Easy-to-use database with a spreadsheet interface, ideal for rapid prototyping."
+            }
+          ]
+        },
+        {
+          "name": "Authentication & Authorization",
+          "items": [
+            {
+              "name": "Firebase Auth",
+              "url": "https://firebase.google.com/products/auth",
+              "description": "Simple authentication with social login support, no complex setup required."
+            },
+            {
+              "name": "Auth0",
+              "url": "https://auth0.com/",
+              "description": "Authentication service with support for social and passwordless login."
+            },
+            {
+              "name": "Clerk.dev",
+              "url": "https://clerk.dev/",
+              "description": "Drop-in authentication and user management with easy setup for MVPs."
+            },
+            {
+              "name": "Magic Link",
+              "url": "https://magic.link/",
+              "description": "Passwordless login with email, makes user authentication frictionless."
+            },
+            {
+              "name": "SuperTokens",
+              "url": "https://supertokens.com/",
+              "description": "Open-source authentication solution with pre-built frontend and backend integrations."
+            },
+            {
+              "name": "Firebase Anonymous Auth",
+              "url": "https://firebase.google.com/docs/auth/web/anonymous-auth",
+              "description": "Quick setup for apps that need user tracking without full sign-up."
+            },
+            {
+              "name": "NextAuth.js",
+              "url": "https://next-auth.js.org/",
+              "description": "Authentication for Next.js."
+            }
+          ]
+        },
+        {
+          "name": "APIs & Data Access",
+          "items": [
+            {
+              "name": "RapidAPI",
+              "url": "https://rapidapi.com/",
+              "description": "API marketplace to quickly find and test external APIs."
+            },
+            {
+              "name": "Swagger UI",
+              "url": "https://swagger.io/",
+              "description": "Tool for automatically documenting and interactively testing your REST APIs."
+            },
+            {
+              "name": "OpenAI API",
+              "url": "https://platform.openai.com/docs/introduction",
+              "description": "Pre-built NLP models for text generation and understanding, free trial credits."
+            },
+            {
+              "name": "Twilio",
+              "url": "https://www.twilio.com/",
+              "description": "Simple API for sending SMS and making calls, free trial with credits."
+            },
+            {
+              "name": "NewsAPI",
+              "url": "https://newsapi.org/",
+              "description": "Free access to recent news data from various sources."
+            },
+            {
+              "name": "Mapbox",
+              "url": "https://www.mapbox.com/",
+              "description": "Easy-to-use maps and geolocation service with a generous free tier."
+            },
+            {
+              "name": "SheetDB",
+              "url": "https://sheetdb.io/",
+              "description": "Turns Google Sheets into a REST API for quick MVP data handling."
+            },
+            {
+              "name": "Mocky",
+              "url": "https://mocky.io/",
+              "description": "Tool for generating custom mock APIs."
+            },
+            {
+              "name": "Mockaroo",
+              "url": "https://www.mockaroo.com/",
+              "description": "Mock tool to generate up to 1,000 rows of test data in CSV, JSON, SQL, and Excel formats."
+            },
+            {
+              "name": "JsonPlaceholder",
+              "url": "https://jsonplaceholder.typicode.com/",
+              "description": "Fake online REST API for quick prototyping and testing."
+            },
+            {
+              "name": "CoinGecko",
+              "url": "https://www.coingecko.com/en/api/documentation",
+              "description": "Cryptocurrency price, market, and developer/social data."
+            },
+            {
+              "name": "DBeaver Community",
+              "url": "https://dbeaver.io/",
+              "description": "Open-source database management tool supporting multiple database types (MySQL, PostgreSQL, SQLite, Oracle, etc.), with features for data visualization, SQL editing, and database administration."
+            }
+          ]
+        },
+        {
+          "name": "AI & ML",
+          "items": [
+            {
+              "name": "Hugging Face Transformers",
+              "url": "https://huggingface.co/docs/transformers/",
+              "description": "Pre-trained NLP models, no need to train from scratch."
+            },
+            {
+              "name": "Teachable Machine",
+              "url": "https://teachablemachine.withgoogle.com/",
+              "description": "Train image, sound, and pose models in the browser without code."
+            },
+            {
+              "name": "Google Colab",
+              "url": "https://colab.research.google.com/",
+              "description": "Free Jupyter notebook with GPU support for quick prototyping of ML models."
+            },
+            {
+              "name": "IBM Watson AI",
+              "url": "https://www.ibm.com/cloud/watson",
+              "description": "NLP, vision, and language tools with free tier for basic tasks."
+            },
+            {
+              "name": "RunwayML",
+              "url": "https://runwayml.com/",
+              "description": "No-code tool for computer vision, quickly deploys AI models for images or videos."
+            },
+            {
+              "name": "Replicate",
+              "url": "https://replicate.com/",
+              "description": "Run and fine-tune open-source models. Deploy custom models at scale. All with one line of code."
+            }
+          ]
+        },
+        {
+          "name": "MCP Servers/Tools",
+          "items": [
+            {
+              "name": "MCP-Hydra",
+              "url": "https://github.com/HappyHackingSpace/mcp-hydra",
+              "description": "A cybersecurity toolkit that connects AI assistants to security tools."
+            },
+            {
+              "name": "GhidraMCP",
+              "url": "https://github.com/LaurieWired/GhidraMCP",
+              "description": "ghidraMCP is an Model Context Protocol server for allowing LLMs to autonomously reverse engineer applications."
+            },
+            {
+              "name": "MCP-Scan",
+              "url": "https://github.com/invariantlabs-ai/mcp-scan",
+              "description": "An MCP Security Scanner"
+            }
+          ]
+        },
+        {
+          "name": "Data Engineering & Big Data",
+          "items": [
+            {
+              "name": "Google BigQuery Sandbox",
+              "url": "https://cloud.google.com/bigquery/docs/sandbox",
+              "description": "Free data warehouse with SQL, good for small datasets."
+            },
+            {
+              "name": "Apache Kafka on Confluent Cloud",
+              "url": "https://www.confluent.io/confluent-cloud/tryfree/",
+              "description": "Free tier for real-time data streaming."
+            },
+            {
+              "name": "Looker Studio (formerly Google Data Studio)",
+              "url": "https://lookerstudio.google.com/",
+              "description": "Free data visualization tool for creating quick dashboards."
+            },
+            {
+              "name": "Fivetran Free Tier",
+              "url": "https://www.fivetran.com/pricing",
+              "description": "Managed connectors to pull data from popular sources into your database."
+            },
+            {
+              "name": "Pandas Profiling",
+              "url": "https://pandas-profiling.ydata.ai/",
+              "description": "Auto-generate data analysis reports from Pandas DataFrames."
+            },
+            {
+              "name": "Kaggle Datasets",
+              "url": "https://www.kaggle.com/datasets",
+              "description": "Access open datasets for building data-driven MVPs quickly."
+            }
+          ]
+        },
+        {
+          "name": "Cybersecurity",
+          "items": [
+            {
+              "name": "Nuclei",
+              "url": "https://docs.projectdiscovery.io/tools/nuclei/overview",
+              "description": "Open-source vulnerability scanner powered by the global security community for finding vulnerabilities."
+            },
+            {
+              "name": "OWASP ZAP",
+              "url": "https://www.zaproxy.org/",
+              "description": "Open-source web application security scanner for finding vulnerabilities."
+            },
+            {
+              "name": "Burp Suite Community",
+              "url": "https://portswigger.net/burp",
+              "description": "Free tool for manual vulnerability assessments of web apps."
+            },
+            {
+              "name": "Nmap",
+              "url": "https://nmap.org/",
+              "description": "Network discovery and security auditing tool, great for network vulnerability checks."
+            },
+            {
+              "name": "Wireshark",
+              "url": "https://www.wireshark.org/",
+              "description": "Network protocol analyzer, helpful for quick network debugging."
+            },
+            {
+              "name": "Metasploit",
+              "url": "https://www.metasploit.com/",
+              "description": "A tool used by cybersecurity professionals to perform penetration tests."
+            },
+            {
+              "name": "Sqlmap",
+              "url": "http://sqlmap.org/",
+              "description": "A penetration testing tool that automates the detection and exploitation of SQL injection flaws."
+            },
+            {
+              "name": "Wfuzz",
+              "url": "https://github.com/xmendez/wfuzz",
+              "description": "Web application fuzz testing CLI tool."
+            },
+            {
+              "name": "Sudomy",
+              "url": "https://github.com/Screetsec/Sudomy",
+              "description": "Subdomain enumeration tool for collecting subdomains and performing automated reconnaissance."
+            },
+            {
+              "name": "Frida",
+              "url": "https://frida.re/",
+              "description": "A reverse engineering tool for Android and Windows applications."
+            }
+          ]
+        },
+        {
+          "name": "Blockchain & Web3",
+          "items": [
+            {
+              "name": "Alchemy",
+              "url": "https://www.alchemy.com/",
+              "description": "Easy-to-use platform for blockchain APIs and developer tools, free tier included."
+            },
+            {
+              "name": "MetaMask",
+              "url": "https://metamask.io/",
+              "description": "Browser extension for managing blockchain wallets and accessing DApps."
+            },
+            {
+              "name": "Infura",
+              "url": "https://infura.io/",
+              "description": "API for connecting to the Ethereum blockchain, with free monthly transactions."
+            },
+            {
+              "name": "Moralis",
+              "url": "https://moralis.io/",
+              "description": "Web3 backend with APIs, user authentication, and data storage."
+            },
+            {
+              "name": "Remix IDE",
+              "url": "https://remix.ethereum.org/",
+              "description": "Browser-based Solidity IDE, ideal for writing and testing smart contracts."
+            }
+          ]
+        },
+        {
+          "name": "Game Development",
+          "items": [
+            {
+              "name": "Unity Personal",
+              "url": "https://unity.com/products/unity-personal",
+              "description": "Free game engine for indie developers, ideal for cross-platform, rapid and blitz 2D/3D games."
+            },
+            {
+              "name": "GDevelop",
+              "url": "https://gdevelop.io/",
+              "description": "No-code game creation tool with fast setup, suitable for quick prototypes."
+            },
+            {
+              "name": "Godot",
+              "url": "https://godotengine.org/",
+              "description": "Open-source game engine, perfect for lightweight 2D and 3D games."
+            },
+            {
+              "name": "Tiled",
+              "url": "https://www.mapeditor.org/",
+              "description": "Free tool for creating 2D tile maps, great for game prototyping."
+            },
+            {
+              "name": "Construct 3",
+              "url": "https://www.construct.net/en",
+              "description": "No-code game development platform with a free tier for building prototypes."
+            },
+            {
+              "name": "Stability.ai",
+              "url": "https://stability.ai/",
+              "description": "For stable models."
+            },
+            {
+              "name": "DeepMotion",
+              "url": "https://www.deepmotion.com/",
+              "description": "Text to 3D animation and Video to 3D animation app."
+            }
+          ]
+        },
+        {
+          "name": "Data Visualization",
+          "items": [
+            {
+              "name": "Plotly",
+              "url": "https://plotly.com/",
+              "description": "Interactive graphing for data visualization in Python."
+            },
+            {
+              "name": "Tableau Public",
+              "url": "https://public.tableau.com/",
+              "description": "Free version for creating interactive, shareable data dashboards."
+            },
+            {
+              "name": "Google Charts",
+              "url": "https://developers.google.com/chart",
+              "description": "Simple API for adding data visualizations to your website."
+            },
+            {
+              "name": "Chart.js",
+              "url": "https://www.chartjs.org/",
+              "description": "Lightweight JavaScript library for quick and easy charts on the frontend."
+            },
+            {
+              "name": "Draw.io",
+              "url": "https://www.diagrams.net/",
+              "description": "An open-source diagramming tool for creating structured diagrams, flowcharts, and more, with Google Drive integration."
+            }
+          ]
+        },
+        {
+          "name": "Generator & Snippet",
+          "items": [
+            {
+              "name": "Vercel OG Image Playground",
+              "url": "https://og-playground.vercel.app",
+              "description": "Generate Open Graph images with Vercel’s Edge Function."
+            },
+            {
+              "name": "Scrollbar.app",
+              "url": "https://scrollbar.app",
+              "description": "Simple CSS scrollbar editor."
+            },
+            {
+              "name": "Tailwind CSS Color Generator",
+              "url": "https://uicolors.app/create",
+              "description": "Generate, edit, save and share Tailwind CSS color shades based on a given hexcode or HSL color."
+            },
+            {
+              "name": "bg.ibelick",
+              "url": "https://bg.ibelick.com",
+              "description": "Collection of modern, background snippets"
+            },
+            {
+              "name": "Gradiently",
+              "url": "https://gradienty.codes",
+              "description": "Create stunning visuals effortlessly with our Tailwind Gradient Generator."
+            },
+            {
+              "name": "Haikei",
+              "url": "https://app.haikei.app",
+              "description": "A web-based design tool to generate unique SVG design assets for websites"
+            }
+          ]
+        },
+        {
+          "name": "AI Tools",
+          "items": [
+            {
+              "name": "Bolt",
+              "url": "https://bolt.new/",
+              "description": "Bolt.new is an AI-powered web development agent that allows you to prompt, run, edit, and deploy full-stack applications directly from your browser"
+            },
+            {
+              "name": "Cursor",
+              "url": "https://www.cursor.com/",
+              "description": "Cursor is an AI-powered integrated development environment for Windows, macOS and Linux designed to enhance developer productivity by integrating advanced artificial intelligence features directly into the coding environment."
+            },
+            {
+              "name": "Windsurf",
+              "url": "https://codeium.com/windsurf",
+              "description": "Windsurf is an AI-powered code editor that helps you write code faster and more accurately. It provides real-time code completion, code suggestions, and code refactoring."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Design",
+      "subsections": [
+        {
+          "name": "Tool",
+          "items": [
+            {
+              "name": "Figma",
+              "url": "https://www.figma.com/",
+              "description": "Collaborative design tool for wireframes and prototypes, real-time collaboration."
+            },
+            {
+              "name": "Blender",
+              "url": "https://www.blender.org/",
+              "description": "Blender is a free and open-source 3D computer graphics software tool set that runs on Windows, MacOS, BSD, Haiku, IRIX, and Linux."
+            },
+            {
+              "name": "Pixilart",
+              "url": "https://www.pixilart.com/",
+              "description": "Free browser-based pixel art app."
+            },
+            {
+              "name": "v0",
+              "url": "https://v0.dev/",
+              "description": "v0 is a powerful tool for generating high-quality UIs and code, and it's also an educational asset for designing and creating on the web."
+            }
+          ]
+        },
+        {
+          "name": "Illustration",
+          "items": [
+            {
+              "name": "Humaaans",
+              "url": "https://www.humaaans.com",
+              "description": "Mix-&-match illustrations of people with a design library for InVIsion Studio and Sketch."
+            },
+            {
+              "name": "SVG Illustrations",
+              "url": "https://lukaszadam.com/illustrations",
+              "description": "Free SVG Illustrations"
+            },
+            {
+              "name": "Open Peeps",
+              "url": "https://www.openpeeps.com",
+              "description": "Open Peeps is a hand-drawn illustration library to create scenes of people."
+            },
+            {
+              "name": "404 Illustrations",
+              "url": "https://www.kapwing.com/404-illustrations",
+              "description": "This website is a hand-crafted collection of illustrations that you can use for your website's 404 (Not Found) page."
+            },
+            {
+              "name": "Popsy",
+              "url": "https://popsy.co/illustrations",
+              "description": "The biggest free Notion illustration set."
+            }
+          ]
+        },
+        {
+          "name": "Fonts",
+          "items": [
+            {
+              "name": "Geist Font",
+              "url": "https://vercel.com/font",
+              "description": "Geist is a developer-focused typeface inspired by Swiss design, embodying Vercel's principles of simplicity, minimalism, and speed."
+            },
+            {
+              "name": "Onest",
+              "url": "https://github.com/simpals/onest",
+              "description": "Onest blends geometric and humanistic styles, offering weights from thin to extra bold, perfect for reading long texts on screens."
+            }
+          ]
+        },
+        {
+          "name": "Icons",
+          "items": [
+            {
+              "name": "Phosphor Icons",
+              "url": "https://phosphoricons.com/",
+              "description": "A versatile icon family for interfaces, diagrams, and more."
+            },
+            {
+              "name": "Radix Icons",
+              "url": "https://icons.radix-ui.com/",
+              "description": "An open-source component library for fast, accessible, and hassle-free development."
+            },
+            {
+              "name": "Lucide Icons",
+              "url": "https://lucide.dev/",
+              "description": "Beautiful & consistent icon toolkit made by the community."
+            },
+            {
+              "name": "Geist Icons",
+              "url": "https://geist-ui.dev/en-us/components/icons",
+              "description": "A collection of icons used across Vercel products."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Testing & Quality Assurance",
+      "subsections": []
+    },
+    {
+      "name": "Deployment & Hosting",
+      "subsections": [
+        {
+          "name": "Hosting & Deployment",
+          "items": [
+            {
+              "name": "Vercel",
+              "url": "https://vercel.com/",
+              "description": "One-click deployment for frontend frameworks, with auto scaling and global CDN."
+            },
+            {
+              "name": "Netlify",
+              "url": "https://www.netlify.com/",
+              "description": "Free static hosting with CI/CD, deploys apps directly from GitHub."
+            },
+            {
+              "name": "Glitch",
+              "url": "https://glitch.com/",
+              "description": "In-browser IDE for deploying small Node.js apps instantly, great for demos."
+            },
+            {
+              "name": "GitHub Pages",
+              "url": "https://pages.github.com/",
+              "description": "Free hosting for static websites, ideal for deploying simple frontend MVPs."
+            }
+          ]
+        },
+        {
+          "name": "Serverless & Cloud Functions",
+          "items": [
+            {
+              "name": "AWS Lambda Free Tier",
+              "url": "https://aws.amazon.com/lambda/pricing/",
+              "description": "Run code in response to events with minimal setup."
+            },
+            {
+              "name": "Google Cloud Functions Free Tier",
+              "url": "https://cloud.google.com/functions/pricing",
+              "description": "Serverless functions for small, event-driven tasks."
+            },
+            {
+              "name": "Vercel Serverless Functions",
+              "url": "https://vercel.com/docs/concepts/functions/serverless-functions",
+              "description": "Built-in serverless functions for API routes in frontend apps."
+            },
+            {
+              "name": "Cloudflare Workers",
+              "url": "https://developers.cloudflare.com/workers/",
+              "description": "Serverless compute at the edge, with free tier for lightweight apps."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Collaboration & Communication",
+      "subsections": []
+    },
+    {
+      "name": "Presentation & Pitching",
+      "subsections": []
+    },
+    {
+      "name": "Extension",
+      "subsections": []
+    },
+    {
+      "name": "VPN",
+      "subsections": []
+    }
+  ]
+}

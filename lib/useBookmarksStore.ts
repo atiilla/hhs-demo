@@ -55,20 +55,29 @@ const useBookmarksStore = create<BookmarksState>((set, get) => ({
     
     set({ isLoading: true });
     try {
-      // check if the bookmarks are already in the session storage
-      const savedBookmarksLocal = sessionStorage.getItem('bookmarks');
-      if (savedBookmarksLocal) {
-        const parsedBookmarks = JSON.parse(savedBookmarksLocal);
-        set({ bookmarks: parsedBookmarks });
-      } else {
-        // fetch the bookmarks from the api
-        const fetchBookmarks = await fetch("/api/bookmarks");
-        const bookmarks = await fetchBookmarks.json();
-        
-        // save the bookmarks to the session storage  
-        sessionStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-        set({ bookmarks: bookmarks });
+      // Clear any saved bookmarks to ensure we load from API
+      sessionStorage.removeItem('bookmarks');
+      
+      // fetch the bookmarks from the API
+      const fetchBookmarks = await fetch("/api/bookmarks");
+      
+      if (!fetchBookmarks.ok) {
+        throw new Error(`Failed to fetch bookmarks: ${fetchBookmarks.status} ${fetchBookmarks.statusText}`);
       }
+      
+      const bookmarks = await fetchBookmarks.json();
+      
+      if (!Array.isArray(bookmarks)) {
+        console.error('Bookmarks data is not an array:', bookmarks);
+        set({ bookmarks: [] });
+        return;
+      }
+      
+      console.log('Loaded bookmarks:', bookmarks.length);
+      
+      // save the bookmarks to the session storage  
+      sessionStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+      set({ bookmarks: bookmarks });
     } catch (error) {
       console.error('Error loading bookmarks:', error);
       // If there's an error, initialize with empty array
