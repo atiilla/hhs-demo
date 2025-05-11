@@ -14,13 +14,14 @@ export const tr = {
       hackathon: "Hackathon"
     },
     hhs: {
+      title: "HHS",
       philosophy: "Felsefe",
       manifesto: "Manifesto",
       team: "Ekip",
       history: "Tarihçe",
       contact: "İletişim",
       brand: "Marka",
-      stickers: "Çıkartmalar"
+      stickers: "Çıkartmalar",
     }
   },
   settings: {

@@ -14,13 +14,14 @@ export const en = {
       hackathon: "Hackathon"
     },
     hhs: {
+      title: "HHS",
       philosophy: "Philosophy",
       manifesto: "Manifesto",
       team: "Team",
       history: "History",
       contact: "Contact",
       brand: "Branding",
-      stickers: "Stickers"
+      stickers: "Stickers",
     }
   },
   settings: {
