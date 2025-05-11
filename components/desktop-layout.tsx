@@ -12,7 +12,7 @@ import { LanguageSwitcher } from "./language-switcher"
 import Logo from "./logo"
 import { ChevronDown } from "lucide-react"
 import NotificationBar from "./notification-bar"
-import Footer from "./footer"
+// import Footer from "./footer"
 
 export default function DesktopLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
@@ -117,7 +117,7 @@ export default function DesktopLayout({ children }: { children: React.ReactNode 
       </main>
 
       {/* Footer */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
