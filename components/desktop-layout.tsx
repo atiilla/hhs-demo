@@ -212,7 +212,7 @@ export default function DesktopLayout({ children }: { children: React.ReactNode 
             <h3 className="text-lg font-semibold mb-4">{t("footer.resources")}</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/blog" className="text-sm text-muted-foreground hover:text-primary">
+                <Link href="https://happyhackingspace.blog/" className="text-sm text-muted-foreground hover:text-primary" target="_blank" rel="noopener noreferrer">
                   {t("footer.blog")}
                 </Link>
               </li>

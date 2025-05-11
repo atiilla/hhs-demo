@@ -36,14 +36,14 @@ export default function MobileLayout({ children }: { children: React.ReactNode }
     { href: "/", label: t("nav.home"), icon: <Home className="h-5 w-5" /> },
     { href: "/events", label: t("nav.events"), icon: <CalendarCheck className="h-5 w-5" /> },
     { href: "/projects", label: t("nav.projects"), icon: <Layers className="h-5 w-5" /> },
-    { href: "/blog", label: t("nav.blog"), icon: <FileText className="h-5 w-5" /> },
+    { href: "https://happyhackingspace.blog/", label: t("nav.blog"), icon: <FileText className="h-5 w-5" /> },
   ]
 
   const navItemsFull = [
     { href: "/", label: t("nav.home"), icon: <Home className="h-5 w-5" /> },
     { href: "/events", label: t("nav.events"), icon: <CalendarCheck className="h-5 w-5" /> },
     { href: "/projects", label: t("nav.projects"), icon: <Layers className="h-5 w-5" /> },
-    { href: "/blog", label: t("nav.blog"), icon: <FileText className="h-5 w-5" /> },
+    { href: "https://happyhackingspace.blog/", label: t("nav.blog"), icon: <FileText className="h-5 w-5" /> },
     { href: "/live", label: t("nav.live"), icon: <Youtube className="h-5 w-5" /> },
     {
       subItems:[
