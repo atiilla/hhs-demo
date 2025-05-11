@@ -143,12 +143,7 @@ export default function DesktopLayout({ children }: { children: React.ReactNode 
       </header>
 
       {/* Notification Bar */}
-      <NotificationBar
-        eventTitle="Hackathon: Cultural Heritage and Digitalization"
-        eventDate="DEC 06, FRIDAY"
-        eventLocation="Diyarbakir Chamber of Commerce and Industry"
-        eventUrl="https://kommunity.com/diyarbakir-happy-hacking-space/events/hackathon-cultural-heritage-and-digitalization-1c617d99"
-      />
+      <NotificationBar />
 
       {/* Main Content */}
       <main className="flex-1">

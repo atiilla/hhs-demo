@@ -218,12 +218,7 @@ export default function MobileLayout({ children }: { children: React.ReactNode }
       </header>
 
       {/* Notification Bar */}
-      <NotificationBar
-        eventTitle="Hackathon: Cultural Heritage"
-        eventDate="DEC 06"
-        eventLocation="Diyarbakir"
-        eventUrl="https://kommunity.com/diyarbakir-happy-hacking-space/events/hackathon-cultural-heritage-and-digitalization-1c617d99"
-      />
+      <NotificationBar />
 
       {/* Main Content */}
       <main className="flex-1 pb-16">
