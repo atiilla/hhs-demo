@@ -10,7 +10,7 @@ import { motion } from "framer-motion"
 import { ThemeToggle } from "./theme-toggle"
 import { LanguageSwitcher } from "./language-switcher"
 import Logo from "./logo"
-import Footer from "@/components/footer"
+import Footer from "./footer"
 import { ChevronDown } from "lucide-react"
 import NotificationBar from "./notification-bar"
 
