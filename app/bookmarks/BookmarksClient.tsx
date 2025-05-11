@@ -10,6 +10,15 @@ import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 
+// Custom CSS classes for theme compatibility
+const THEME_STYLES = {
+  cardHeader: "bg-slate-100 dark:bg-slate-800 pb-3",
+  successAlert: "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-800/50",
+  errorAlert: "bg-rose-50 dark:bg-rose-900/20 text-rose-700 dark:text-rose-300 border border-rose-100 dark:border-rose-800/50",
+  resourceHover: "hover:bg-slate-100 dark:hover:bg-slate-800/70",
+  moreButton: "text-blue-600 dark:text-blue-400"
+};
+
 export default function BookmarksClient() {
     const { bookmarks, loadBookmarks, isLoading, currentSource, setCurrentSource } = useBookmarksStore();
     const [expandedWidgets, setExpandedWidgets] = useState<Record<string, boolean>>({});
@@ -75,12 +84,6 @@ export default function BookmarksClient() {
         if (titleLower.includes('database')) return <Database className="h-5 w-5" />;
         if (titleLower.includes('development')) return <Code className="h-5 w-5" />;
         return <Bookmark className="h-5 w-5" />;
-    };
-
-    // Get color based on section index for variety
-    const getSectionColor = (index: number) => {
-        const colors = ['primary', 'secondary', 'accent', 'destructive'];
-        return colors[index % colors.length];
     };
 
     // Filter bookmarks based on search query
@@ -207,7 +210,7 @@ export default function BookmarksClient() {
                 </div>
                 
                 {refreshStatus.message && (
-                    <div className={`mb-6 p-4 rounded-lg ${refreshStatus.success ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100' : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100'}`}>
+                    <div className={`mb-6 p-4 rounded-lg ${refreshStatus.success ? THEME_STYLES.successAlert : THEME_STYLES.errorAlert}`}>
                         {refreshStatus.message}
                     </div>
                 )}
@@ -237,11 +240,10 @@ export default function BookmarksClient() {
                                         const displayedLinks = isExpanded 
                                             ? links 
                                             : links.slice(0, Math.min(3, links.length));
-                                        const color = getSectionColor(bookmarkIndex + widgetIndex);
                                         
                                         return (
                                             <Card key={`${bookmarkIndex}-${widgetIndex}`} className="overflow-hidden border hover:shadow-md transition-shadow">
-                                                <CardHeader className={`bg-${color}/10 pb-3`}>
+                                                <CardHeader className={THEME_STYLES.cardHeader}>
                                                     <CardTitle className="flex items-center gap-2 text-xl" id={widget.title}>
                                                         {getSectionIcon(widget.title)}
                                                         <span>{widget.title || 'Resource'}</span>
@@ -275,7 +277,7 @@ export default function BookmarksClient() {
                                                             <Button 
                                                                 variant="ghost" 
                                                                 size="sm" 
-                                                                className={`w-full justify-between text-${color}`}
+                                                                className={`w-full justify-between ${THEME_STYLES.moreButton}`}
                                                                 onClick={() => toggleWidget(widgetId, widget.title)}
                                                             >
                                                                 <span>{isExpanded ? 'Show Less' : `Show ${links.length - 3} More`}</span>
@@ -333,7 +335,7 @@ function ResourceLink({ title, icon, description, url }: { title: string, icon: 
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 p-3 rounded-md hover:bg-accent/10 transition-colors group"
+            className={`flex items-center gap-3 p-3 rounded-md ${THEME_STYLES.resourceHover} transition-colors group`}
         >
             <div className="w-10 h-10 flex-shrink-0 rounded-md overflow-hidden bg-background border flex items-center justify-center">
                 <img 

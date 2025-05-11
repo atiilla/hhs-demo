@@ -13,7 +13,6 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   title: "Happy Hacking Space",
   description: "A community-driven, collaborative environment for technology enthusiasts",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
