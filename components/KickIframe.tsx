@@ -28,7 +28,7 @@ const KickIframe: React.FC = () => {
         
         // Try fetching from Kick API
         try {
-          const response = await fetch("https://kick.com/api/v2/channels/xqc/livestream", {
+          const response = await fetch("https://kick.com/api/v2/channels/pgl/livestream", {
             headers: {
               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
             },
@@ -65,7 +65,7 @@ const KickIframe: React.FC = () => {
             console.log("Channel thumbnail not available, likely no stream");
             setIframeAvailability(false);
           };
-          testImg.src = `https://thumb.kick.com/thumbnails/xqc/720x400.jpg?${Date.now()}`;
+          testImg.src = `https://thumb.kick.com/thumbnails/pgl/720x400.jpg?${Date.now()}`;
         }
       } catch (error) {
         console.error("Error in livestream check:", error);
@@ -137,7 +137,7 @@ const KickIframe: React.FC = () => {
             style={{ height: 'calc(100% - 28px)' }}
           >
             <iframe
-              src="https://player.kick.com/xqc"
+              src="https://player.kick.com/pgl"
               width="100%"
               height="100%"
               style={{ 
